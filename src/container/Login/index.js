@@ -77,14 +77,14 @@ export default function Login({ navigation }) {
             {/* El contenedor recibe los inputs */}
             {/* Input de correo electronico */}
             <TextInput
-                placeholder="correo electronico"
+                placeholder="Ingrese su correo electronico"
                 type="emailAddress"
                 value={inputs.email}
                 onChangeText={subscribe("email")}
             />
             {/* Input de la pass */}
             <TextInput
-                placeholder="contraseña"
+                placeholder="Ingrese su contraseña"
                 secure={true}
                 type="password"
                 value={inputs.pass}

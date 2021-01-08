@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flex: 2,
+        marginBottom: 25,
     },
     imageContainer: {
         justifyContent: "center",

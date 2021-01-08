@@ -25,8 +25,8 @@ const Container = ({
                     <Image
                         source={imagen}
                         style={{
-                            height: "100%",
-                            marginTop: "20%",
+                            height: "80%",
+                            marginTop: "10%",
                             resizeMode: "contain",
                         }}
                     ></Image>
