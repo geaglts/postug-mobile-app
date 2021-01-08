@@ -4,7 +4,7 @@ import {
     POST_GET_FAILURE,
     POST_UPDATE_SUCCESS,
     POST_UPDATE_FAILURE,
-    SET_POST
+    SET_POST,
 } from "./postTypes";
 import axios from "axios";
 import { AsyncStorage, Alert } from "react-native";
@@ -12,34 +12,34 @@ import { AsyncStorage, Alert } from "react-native";
 //Acciones para la peticion get de los posts
 const postRequest = () => {
     return {
-        type: POST_REQUEST
+        type: POST_REQUEST,
     };
 };
 
-const postGetSuccess = posts => {
+const postGetSuccess = (posts) => {
     return {
         type: POST_GET_SUCCESS,
-        payload: posts
+        payload: posts,
     };
 };
 
-const postGetFailure = error => {
+const postGetFailure = (error) => {
     return {
         type: POST_GET_FAILURE,
-        payload: error
+        payload: error,
     };
 };
 
 // Accion de la funcion para traer un post
-export const setPost = idpost => {
+export const setPost = (idpost) => {
     return {
         type: SET_POST,
-        payload: idpost
+        payload: idpost,
     };
 };
 
 //funcion para hacer traer los posts
-export const getPosts = _ => async dispatch => {
+export const getPosts = (_) => async (dispatch) => {
     dispatch(postRequest());
 
     const token = await AsyncStorage.getItem("token");
@@ -49,13 +49,13 @@ export const getPosts = _ => async dispatch => {
         : axios
               .get("https://postug.herokuapp.com/api/post", {
                   headers: {
-                      authorization: token
-                  }
+                      authorization: token,
+                  },
               })
-              .then(posts => {
+              .then((posts) => {
                   dispatch(postGetSuccess(posts.data));
               })
-              .catch(e => {
+              .catch((e) => {
                   dispatch(
                       postGetFailure(
                           "No pudimos conectarnos al servidor, intentelo mas tarde"
@@ -67,26 +67,26 @@ export const getPosts = _ => async dispatch => {
 // Acciones para la funcion de actualizacion del post
 const postUpdateRequest = () => {
     return {
-        type: POST_UPDATE_REQUEST
+        type: POST_UPDATE_REQUEST,
     };
 };
 
-const postUpdateSuccess = mensaje => {
+const postUpdateSuccess = (mensaje) => {
     return {
         type: POST_UPDATE_SUCCESS,
-        payload: mensaje
+        payload: mensaje,
     };
 };
 
-const postUpdateFailure = error => {
+const postUpdateFailure = (error) => {
     return {
         type: POST_UPDATE_FAILURE,
-        payload: error
+        payload: error,
     };
 };
 
 //Funcion para actualizar el post
-export const updatePost = post => async dispatch => {
+export const updatePost = (post) => async (dispatch) => {
     dispatch(postRequest());
 
     const token = await AsyncStorage.getItem("token");
@@ -99,14 +99,14 @@ export const updatePost = post => async dispatch => {
                   { nombre: post.nombre, descripcion: post.descripcion },
                   {
                       headers: {
-                          authorization: token
-                      }
+                          authorization: token,
+                      },
                   }
               )
-              .then(response => {
+              .then((response) => {
                   dispatch(postUpdateSuccess(response.data));
               })
-              .catch(e => {
+              .catch((e) => {
                   console.log(e);
                   dispatch(postUpdateFailure("Esto no debio pasar"));
               });

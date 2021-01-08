@@ -32,10 +32,10 @@ const PostListView = ({ posts, navigation }) => {
                 </ScrollView>
             </View>
             <View style={styles.buttonContainer}>
-                <View style={{ flexDirection: "row" }}>
+                <View style={{ flexDirection: "row", marginBottom: 30 }}>
                     {/* Renderiza el boton de "nuevo" */}
                     <Button
-                        title="nuevo"
+                        title="Nueva Nota"
                         onPress={() => {
                             navigation.navigate("FormPost");
                         }}

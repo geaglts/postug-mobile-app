@@ -14,25 +14,25 @@ const styles = StyleSheet.create({
         backgroundColor: "#6c63ff",
         width: "100%",
         flex: 1,
-        borderRadius: 2
-    }
+        borderRadius: 2,
+    },
 });
 
 const Card = ({ item, navigation, searchPost }) => {
     //Alerta de confirmacion para eliminar
-    const confirmacion = id => {
-        Alert.alert("confirmar", "esta seguro que desea eliminar esta nota?", [
+    const confirmacion = (id) => {
+        Alert.alert("Confirmar", "Esta seguro que desea eliminar esta nota?", [
             {
                 text: "SI",
                 onPress: () => {
                     eliminar(id);
-                }
+                },
             },
-            { text: "NO", style: "cancel" }
+            { text: "NO", style: "cancel" },
         ]);
     };
 
-    const eliminar = async id => {
+    const eliminar = async (id) => {
         try {
             const token = await AsyncStorage.getItem("token");
 
@@ -43,8 +43,8 @@ const Card = ({ item, navigation, searchPost }) => {
             await fetch(`https://postug.herokuapp.com/api/post/${id}`, {
                 method: "DELETE",
                 headers: {
-                    authorization: token
-                }
+                    authorization: token,
+                },
             });
 
             navigation.navigate("AuthLoading");
@@ -53,7 +53,7 @@ const Card = ({ item, navigation, searchPost }) => {
         }
     };
 
-    const actualizar = idpost => {
+    const actualizar = (idpost) => {
         searchPost(idpost);
         navigation.navigate("UpdateScreen");
     };
@@ -74,8 +74,8 @@ const Card = ({ item, navigation, searchPost }) => {
     );
 };
 
-const mapDispatchToProps = dispatch => ({
-    searchPost: idpost => dispatch(setPost(idpost))
+const mapDispatchToProps = (dispatch) => ({
+    searchPost: (idpost) => dispatch(setPost(idpost)),
 });
 
 export default connect(null, mapDispatchToProps)(Card);

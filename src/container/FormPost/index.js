@@ -64,7 +64,7 @@ function Modal({ navigation }) {
                         onPress={() => {
                             navigation.navigate("Home");
                         }}
-                        label="salir"
+                        label="regresar"
                     />
                 </View>
                 {/* Contenedor la imagen */}
@@ -72,8 +72,8 @@ function Modal({ navigation }) {
                     <Image
                         source={require("../../../assets/newpost.png")}
                         style={{
-                            height: 290,
-                            width: 290,
+                            height: 220,
+                            width: 220,
                             resizeMode: "contain",
                         }}
                     ></Image>
@@ -81,7 +81,7 @@ function Modal({ navigation }) {
                 {/* Contenedor de los inputs */}
                 <View style={styles.inputsContainer}>
                     <TextInput
-                        placeholder="nombre"
+                        placeholder="Titulo de la nota"
                         value={inputs.nombre}
                         onChangeText={subscribe("nombre")}
                     />
@@ -92,7 +92,7 @@ function Modal({ navigation }) {
                         }}
                         multiline={true}
                         numberOfLines={7}
-                        placeholder="descripcion"
+                        placeholder="Contenido de la nota"
                         value={inputs.descripcion}
                         onChangeText={subscribe("descripcion")}
                     />
@@ -101,7 +101,7 @@ function Modal({ navigation }) {
             {/* Contenedor del los botones */}
             <View style={styles.buttonContainer}>
                 <Button
-                    title="Agregar"
+                    title="Agregar Nota"
                     onPress={() => {
                         handleSubmit();
                     }}

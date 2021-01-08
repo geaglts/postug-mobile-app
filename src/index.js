@@ -47,7 +47,7 @@ const AppNavigator = createStackNavigator(
         Home: {
             screen: Home,
             navigationOptions: ({ navigation }) => ({
-                title: "Home",
+                title: "INICIO",
                 headerRight: (
                     <Link
                         onPress={async () => {
@@ -67,7 +67,7 @@ const AppNavigator = createStackNavigator(
         UpdateScreen: {
             screen: UpdateFormPost,
             navigationOptions: ({ navigation }) => ({
-                title: "Actualizar",
+                title: "ACTUALIZAR",
                 headerLeft: (
                     <Link
                         onPress={() => {

@@ -17,6 +17,8 @@ export const styles = StyleSheet.create({
         flex: 2,
     },
     salirContainer: {
-        justifyContent: "center",
+        position: "absolute",
+        top: 10,
+        left: 10,
     },
 });

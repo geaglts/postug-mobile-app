@@ -4,7 +4,7 @@ import {
     POST_GET_FAILURE,
     POST_UPDATE_SUCCESS,
     POST_UPDATE_FAILURE,
-    SET_POST
+    SET_POST,
 } from "./postTypes";
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
     error: "",
     idpost: "",
     post: {},
-    mensaje: ""
+    mensaje: "",
 };
 
 const postReducer = (state = initialState, action) => {
@@ -21,43 +21,43 @@ const postReducer = (state = initialState, action) => {
         case POST_REQUEST:
             return {
                 ...state,
-                loading: true
+                loading: true,
             };
         case POST_GET_SUCCESS:
             return {
                 posts: action.payload,
                 loading: false,
-                error: ""
+                error: "",
             };
         case POST_GET_FAILURE:
             return {
                 posts: [],
                 loading: false,
-                error: action.payload
+                error: action.payload,
             };
         case SET_POST: {
             const post = state.posts.filter(
-                post => post.idpost === action.payload
+                (post) => post.idpost === action.payload
             );
             return {
                 ...state,
                 post: post[0],
                 error: "",
                 mensaje: "",
-                loading: false
+                loading: false,
             };
         }
         case POST_UPDATE_SUCCESS:
             return {
                 ...state,
                 mensaje: action.payload,
-                loading: false
+                loading: false,
             };
         case POST_UPDATE_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
             };
         default:
             return state;

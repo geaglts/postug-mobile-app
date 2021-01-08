@@ -1,5 +1,23 @@
 import React from "react";
-import { View, Image, KeyboardAvoidingView, Alert } from "react-native";
+import { View, Image, Alert, StyleSheet } from "react-native";
+
+// Styles
+const styles = StyleSheet.create({
+    flexCenter: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    image: {
+        width: 210,
+        height: 210,
+        resizeMode: "contain",
+    },
+    saveButton: {
+        position: "absolute",
+        bottom: 11,
+        left: 10,
+    },
+});
 
 // Redux
 import { connect } from "react-redux";
@@ -62,40 +80,25 @@ function UpdateFormPost({
         );
     } else {
         return (
-            <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 {/* Contenedor de la imagen */}
-                <View
-                    style={{
-                        flex: 4,
-                        alignItems: "center",
-                        justifyContent: "center",
-                    }}
-                >
+                <View style={styles.flexCenter}>
                     <Image
                         source={require("../../../assets/ImageOfUpdatePost.png")}
-                        style={{
-                            height: "100%",
-                            resizeMode: "contain",
-                        }}
+                        style={styles.image}
                     />
                 </View>
                 {/* Contenedor de los inputs */}
-                <View
-                    style={{
-                        flex: 5,
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <View style={styles.flexCenter}>
                     <TextInput
-                        placeholder="nombre"
+                        placeholder="Titulo de la nota"
                         onChangeText={subscribe("nombre")}
                         value={inputs.nombre}
                     />
                     <TextInput
-                        placeholder="descripcion"
+                        placeholder="Contenido de la nota"
                         multiline={true}
-                        numberOfLines={4}
+                        numberOfLines={7}
                         onChangeText={subscribe("descripcion")}
                         value={inputs.descripcion}
                         styleInput={{
@@ -104,16 +107,10 @@ function UpdateFormPost({
                     />
                 </View>
                 {/* Contenedor del boton de guardar */}
-                <View
-                    style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
-                    <Button title="Guardar" onPress={handleSubmit} />
+                <View style={styles.flexCenter}>
+                    <Button title="Guardar cambios" onPress={handleSubmit} />
                 </View>
-            </KeyboardAvoidingView>
+            </View>
         );
     }
 }
