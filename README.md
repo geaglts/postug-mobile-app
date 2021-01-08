@@ -12,5 +12,5 @@
 
 ### Login And Register
 
-![Login](../assets/login.png?raw=true)
-<img src="../assets/register.png?raw=true" width="30">
+<img src="../assets/login.png?raw=true" width="450">
+<img src="../assets/register.png?raw=true" width="450">
