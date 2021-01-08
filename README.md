@@ -2,13 +2,21 @@
 
 ## 🍮 Technologies
 
+### 🏞 FrontEnd
+
 -   Axios
 -   Expo
 -   React Native
 -   React Navigation
 -   Redux
 
-## ScreenShots
+### 🏞 BackEnd
+- Express
+- JsonWebToken
+- Sequelize (PostgreSQL Database)
+
+
+## 📱 ScreenShots
 
 ### Login And Register
 
